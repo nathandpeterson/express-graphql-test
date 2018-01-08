@@ -3,12 +3,11 @@ const app = express()
 const PORT = process.env.PORT || 3333
 
 const expressGraphQL = require('express-graphql')
+const schema = require('./schema/schema.js')
 
-app.use('/', (req, res) => {
-    res.send('hi')
-})
 
 app.use('/graphql', expressGraphQL({
+    schema,
     graphiql: true
 }))
 
